@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="mainTitle">Original Title</h1>
+    <p id="text">This is some original text</p>
+    <img style="height: 160px; width: 160px; "id="myImage" src="pexels-consumedbyjpgs-1662055280-27728359.jpg"   alt="original">
+    <a id="myLink" href="https://www.srit.ac.in/" target="_blank">Go to example</a>
+    <button onclick="changeContent()">change content</button>
+    <script>
+        function changeContent(){
+            //change inner text
+            document.getElementById('text').innerText="This is some changed text"
+            //change inner html
+            document.getElementById('mainTitle').innerHTML='<div> updated title </div>'
+           
+            //change image source and alt
+            const s=document.getElementById('myImage')
+            s.src="pexels-kamtbic-2152774479-32956257.jpg"
+            s.alt="new image"
+           
+            //change the link ref and text
+            const l=document.getElementById('myLink')
+            l.href='https://www.codechef.com/'
+            l.innerText='new example'
+           
+
+        }
+    </script>
+
+    </body>
+</html>

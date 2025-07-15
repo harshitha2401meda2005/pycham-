@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .myClass{
+            color:greenyellow;
+        }
+        .highlight{
+            background-color: greenyellow;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2 id="myId">This is an element with ID</h2>
+    <p class="myClass">Paragraph 1 with class 'myClass'</p>
+    <p class="myClass">Paragraph 2 with class 'myClass'</p>
+    <div class="myClass">Div with class 'myClass'</div>
+    <div>Just a div</div>
+    <script>
+        //1.Get Element by ID
+        const s=document.getElementById('myId');
+        s.style.color='blue';
+        console.log(s);
+        //get element by classname
+        const c=document.getElementsByClassName('myClass');
+        for(let i;i<c.length;i++){
+            c[i].style.fontWeight='bold'
+        }
+        console.log(c);
+        //3 get element bu tag name div
+        const d=document.getElementsByTagName('div');
+        for(let i=0;i<d.length;i++){
+            d[i].style.border='2px solid red';
+        }
+        console.log(d);
+        //4 query selector
+        const queryS=document.querySelector('.myClass')
+        queryS.classList.add('highlight');
+        consol.log(queryS);
+
+        //5  query selector all
+        const querySelectorAll=document.querySelectorAll('div.MyClass')
+        querySelectorAll.forEach(el=>{
+            el.style.padding='10px'
+        });
+        console.log(querySelectorAll);
+    </script>
+</body>
+</html>

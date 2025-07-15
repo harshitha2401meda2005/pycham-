@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Single Div Message App with Append & Prepend</title>
+  <style>
+    #mainDiv {
+      margin-top: 15px;
+      padding: 10px;
+      border: 1px solid #aaa;
+      background: #f9f9f9;
+      width: 320px;
+    }
+    .message {
+      padding: 5px;
+      margin: 4px 0;
+      background-color: #d0f0ff;
+      border-radius: 4px;
+    }
+    #userInput {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 5px;
+      margin-bottom: 8px;
+    }
+    button {
+      margin-right: 5px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Create & Append Elements</h2>
+
+  <div id="mainDiv">
+    <input type="text" id="userInput" placeholder="Enter a message" />
+    <br />
+    <button onclick="addMessage()">Add Message</button>
+    <button onclick="prependMessage()">Prepend Message</button>
+    <p>Message will appear here:</p>
+  </div>
+
+  <script>
+    function addMessage() {
+      const input = document.getElementById('userInput');
+      const userInput = input.value.trim();
+      if (userInput === '') return;
+
+      const newDiv = document.createElement('div');
+      newDiv.className = 'message';
+      newDiv.innerText = userInput;
+
+      const container = document.getElementById('mainDiv');
+      // Append after the last message (or after the <p> tag)
+      // Find last message or the <p> element and insert after it:
+      const messages = container.querySelectorAll('.message');
+      if (messages.length > 0) {
+        messages[messages.length - 1].after(newDiv);
+      } else {
+        // Insert after the <p> element
+        const p = container.querySelector('p');
+        p.after(newDiv);
+      }
+
+      input.value = '';
+      input.focus();
+    }
+
+    function prependMessage() {
+      const input = document.getElementById('userInput');
+      const userInput = input.value.trim();
+      if (userInput === '') return;
+
+      const newDiv = document.createElement('div');
+      newDiv.className = 'message';
+      newDiv.innerText = userInput;
+
+      const container = document.getElementById('mainDiv');
+      const p = container.querySelector('p');
+
+      // Insert the new message just after <p> so it appears on top
+      container.insertBefore(newDiv, p.nextSibling);
+
+      input.value = '';
+      input.focus();
+    }
+  </script>
+</body>
+</html>

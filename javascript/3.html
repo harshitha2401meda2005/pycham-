@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #wrapper {
+           border: 1px solid black #ccc;
+           padding: 10px;
+        }
+        .item{
+            background-color: #f0f0f0;
+            padding: 5px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+
+
+    <div id="wrapper">
+        <h2>Item List</h2>
+        <ul id="itemList">
+            <li class="item">Item 1</li>
+            <li class="item">Item 2</li>
+            <li class="item">Item 3</li>
+        </ul>
+
+        <button onclick="traverseDOM()">Traverse DOM</button>
+        
+    </div>
+
+    <script>
+        
+        function traverseDOM() {
+            const second=document.querySelectorAll('.item')[1];
+            const parent=second.parentNode;
+            const firstChild=parent.firstElementChild;
+
+            const lastChild=parent.lastElementChild;
+            const firstSibling=second.previousElementSibling;
+            const nextSibling=second.nextElementSibling;
+
+            second.style.backgroundColor = "red";
+            if(firstChild) {
+                firstChild.style.backgroundColor = "green";
+            }
+        }
+    </script>
+</body>
+</html>
