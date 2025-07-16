@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Local:
+    'UTC',  'UTC'
+    'New York(US-Eastern)',  'America/New_York'
+    'London',  'Europe/London
+    'Berlin',  'Europe/Berlin'
+    'Tokyo',  'Asia/Tokyo'
+    'Sydney',  'Australia/Sydney'-->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock+Time‑zone Switcher</title>
+     <!-- Minimal styling -->
+ <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #000;
+      font-family: monospace;
+      color: #0f0;
+    }
+    #html {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+    select {
+      font-family: monospace;
+      font-size: 1rem;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+    }
+    .clock {
+      font-size: 4rem;
+    }
+  </style>
+ </head>
+ <body>
+  <!-- Your **only** markup node -->
+  <div id="html"></div>
+    <!--We want to create span
+    hour:   '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: false-->
+    <script>
+        const container =document.getElementById('html');
+
+const select =document.createElement('select')
+container.appendChild(select);
+
+
+const timeZone = [
+    {label:'Local',value:Intl.DateTimeFormat().resolvedOptions().timeZone},
+    {label:'UTC',value:'UTC'},
+    {label:'New York (US_Eastern)',value:'America/New_York'}
+]
+for (const{label,value} of timeZone){
+    const opt = document.createElement('option')
+    opt.textContent= label
+    opt.value=value;
+    select.appendChild(opt);
+}
+const spam= document.createElement('span')
+spam.className='clock';
+container.appendChild(spam)
+const formate={
+hour:   '2-digit',
+minute: '2-digit',
+second: '2-digit',
+hour12: false
+};
+const currentTz = select.value
+
+function updateClock(){
+    const noStr = new Intl.DateTimeFormat('en-GB',{
+        ...formate,
+        timeZone:currentTz
+    }).format(new Date());
+    spam.textContent= noStr;
+}
+select.addEventListener('change',function(){
+    currentTz=select.value
+    updateClock()
+});
+updateClock()
+
+    </script>
+</body>
+</html>
