@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+</head>
+<body>
+  <div id="a"></div>
+
+  <script>
+    const a = document.getElementById("a");
+
+    const emailInput = document.createElement("input");
+    emailInput.placeholder = "Email";
+    a.appendChild(emailInput);
+
+    a.appendChild(document.createElement("br"));
+
+    const passwordInput = document.createElement("input");
+    passwordInput.placeholder = "Password"; 
+    a.appendChild(passwordInput);
+
+    a.appendChild(document.createElement("br"));
+
+    const button = document.createElement("button");
+    button.textContent = "Submit";
+    a.appendChild(button);
+
+    const msg = document.createElement("p");
+    a.appendChild(msg);
+
+    button.onclick = () => {
+      const email = emailInput.value.trim();
+      const pass = passwordInput.value.trim();
+      //msg.textContent = (email && pass) ? "Login successful: " + email : "Please fill in both fields.";
+    };
+  </script>
+</body>
+</html>
