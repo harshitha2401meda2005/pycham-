@@ -1,0 +1,101 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+.btn {
+  display: inline-block;
+  background-color: black;
+  color: white;
+  padding: 10px 20px;
+  margin-top: 20px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  font-weight: bold;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.fashion-page {
+  padding: 40px;
+  background: #fff;
+  text-align: center;
+}
+
+.fashion-container h1 {
+  font-size: 2em;
+}
+
+.images-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 10px;
+  margin-top: 30px;
+  justify-content: center;
+}
+
+.img {
+  background-color: #ccc;
+  height: 150px;
+  border-radius: 10px;
+}
+
+.offers, .footer {
+  margin-top: 20px;
+  font-style: italic;
+}
+
+/* Digital Page */
+.digital-page {
+  background-color: #fbd72b;
+  padding: 40px;
+  color: black;
+}
+
+.digital-container h1 {
+  font-size: 2.5em;
+  line-height: 1.2;
+}
+
+.highlight {
+  background: white;
+  padding: 0 10px;
+  font-weight: bold;
+}
+
+.digital-content {
+  margin-top: 30px;
+}
+
+.digital-content ol {
+  list-style: none;
+  counter-reset: list;
+  padding-left: 0;
+}
+
+.digital-content li {
+  margin-bottom: 15px;
+  counter-increment: list;
+}
+
+.digital-content li::before {
+  content: counter(list, decimal-leading-zero) ". ";
+  font-weight: bold;
+}
+
+.stats {
+  margin-top: 20px;
+  display: flex;
+  gap: 15px;
+}
+
+.social-icons span {
+  margin-right: 10px;
+}
